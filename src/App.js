@@ -2,6 +2,7 @@
 import './App.css';
 import React, {Component} from "react";
 import {CardList} from "./components/card-list/card-list.component";
+import {Search} from "./components/search/search.component";
 class App extends Component {
 
     constructor() {
@@ -21,10 +22,15 @@ componentDidMount() {
 }
 
     render() { // comes built in with react component
+        const { monsters,searchField} = this.state; // destrucrting 
+        const filterMonsters = monsters.filter(monster=>
+           monster.name.toLowerCase().includes(searchField.toLowerCase()) // this checks the comments.
+        )
+        
     return (
         <div className="App"> {/* app is a componenent */}
-            <input type="search" placeholder='Search Monsters' onChange={e=>this.setState({searchField:e.target.value})}/> {/* e is the function targetr and value can be gained via input there.  */}
-            <CardList monsters={this.state.monsters}/> {/* monster is being passed here fromt he class  */}
+            <Search  placeholder='search monster' handleChange={e=>this.setState({searchField:e.target.value})}/>
+            <CardList monsters={filterMonsters}/> {/* monster is being passed here fromt he class  */}
 
 
         </div>
