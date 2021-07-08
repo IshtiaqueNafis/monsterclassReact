@@ -34,6 +34,7 @@ componentDidMount() { // life cycle method
         
     return (
         <div className="App"> {/* app is a componenent */}
+            <h1>Monster Rolodex</h1>
             <Search  placeholder='search monster' handleChange={this.handleChange}/>
             <CardList monsters={filterMonsters}/> {/* monster is being passed here fromt he class  */}
 
