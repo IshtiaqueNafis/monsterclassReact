@@ -24,13 +24,7 @@ componentDidMount() {
     render() { // comes built in with react component
     return (
         <div className="App"> {/* app is a componenent */}
-            <CardList>
-
-            {
-                // eslint-disable-next-line array-callback-return
-              this.state.monsters.map(monster=> <h1 key={monster.id}>{monster.name}</h1>)
-            }
-            </CardList>
+            <CardList monsters={this.state.monsters}/> {/* monster is being passed here fromt he class  */}
 
 
         </div>
