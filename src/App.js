@@ -7,9 +7,8 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            monsters:[
-
-            ]
+            monsters:[],
+            searchField:''
         }
     }
 componentDidMount() {
@@ -24,6 +23,7 @@ componentDidMount() {
     render() { // comes built in with react component
     return (
         <div className="App"> {/* app is a componenent */}
+            <input type="search" placeholder='Search Monsters' onChange={e=>this.setState({searchField:e.target.value})}/> {/* e is the function targetr and value can be gained via input there.  */}
             <CardList monsters={this.state.monsters}/> {/* monster is being passed here fromt he class  */}
 
 
