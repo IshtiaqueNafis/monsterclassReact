@@ -11,8 +11,11 @@ class App extends Component {
             monsters:[],
             searchField:''
         }
+
     }
-componentDidMount() {
+
+
+componentDidMount() { // life cycle method
         // used componeent lifecycle cause of class method
        // used the json format
        // to get the users and set it to monsters.
@@ -20,7 +23,9 @@ componentDidMount() {
         .then(response=>response.json())
         .then(users=>this.setState({monsters:users}));
 }
-
+   handleChange =(e) => {
+        this.setState({searchField:e.target.value});
+    };
     render() { // comes built in with react component
         const { monsters,searchField} = this.state; // destrucrting 
         const filterMonsters = monsters.filter(monster=>
@@ -29,7 +34,7 @@ componentDidMount() {
         
     return (
         <div className="App"> {/* app is a componenent */}
-            <Search  placeholder='search monster' handleChange={e=>this.setState({searchField:e.target.value})}/>
+            <Search  placeholder='search monster' handleChange={this.handleChange}/>
             <CardList monsters={filterMonsters}/> {/* monster is being passed here fromt he class  */}
 
 
